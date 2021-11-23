@@ -60,6 +60,6 @@ const MyFirstView = styled.View({
   backgroundColor: 'red',
 });
 
-const MyFirstText = styled.Text<ColorProps>(color);
+export const MyFirstText = styled.Text<ColorProps>(color);
 
 export default App;
