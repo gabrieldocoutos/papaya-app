@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
 import AppLoading from "expo-app-loading";
 import { useFonts, Lato_900Black } from "@expo-google-fonts/lato";
+import styled, { ThemeProvider } from "styled-components/native";
+import { color, ColorProps } from "styled-system";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -12,11 +13,24 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ fontFamily: "Lato_900Black", fontSize: 40 }}>
-          Lato Black
-        </Text>
-      </View>
+      <ThemeProvider theme={{ colors: { primary: "green" } }}>
+        <MyFirstView
+          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+        >
+          <MyFirstText
+            color="primary"
+            style={{ fontFamily: "Lato_900Black", fontSize: 40 }}
+          >
+            Lato Black
+          </MyFirstText>
+        </MyFirstView>
+      </ThemeProvider>
     );
   }
 }
+
+const MyFirstView = styled.View({
+  backgroundColor: "red",
+});
+
+const MyFirstText = styled.Text<ColorProps>(color);
