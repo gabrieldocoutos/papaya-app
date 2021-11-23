@@ -2,12 +2,19 @@ import * as React from 'react';
 import {View, Text} from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createNativeStackNavigator, NativeStackNavigationProp} from '@react-navigation/native-stack';
+
 import {useFonts, Lato_900Black} from '@expo-google-fonts/lato';
 import styled, {ThemeProvider} from 'styled-components/native';
 import {color, ColorProps} from 'styled-system';
 
-function HomeScreen({navigation}: any) {
+type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>
+
+type Props = {
+  navigation: HomeScreenNavigationProp
+}
+
+function HomeScreen({navigation}: Props) {
   return (
     <MyFirstView
       style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
@@ -30,7 +37,12 @@ function LoginScreen() {
   );
 }
 
-const Stack = createNativeStackNavigator();
+type RootStackParamList = {
+  Home: undefined,
+  Login: undefined
+}
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function App() {
   const [fontsLoaded] = useFonts({
