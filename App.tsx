@@ -1,32 +1,59 @@
-import React from "react";
+import * as React from "react";
+import { Button, View, Text } from "react-native";
 import AppLoading from "expo-app-loading";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts, Lato_900Black } from "@expo-google-fonts/lato";
 import styled, { ThemeProvider } from "styled-components/native";
 import { color, ColorProps } from "styled-system";
 
-export default function App() {
+function HomeScreen({ navigation }) {
+  return (
+    <MyFirstView
+      style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+    >
+      <MyFirstText
+        color="primary"
+        style={{ fontFamily: "Lato_900Black", fontSize: 40 }}
+      >
+        Lato Black
+      </MyFirstText>
+    </MyFirstView>
+  );
+}
+
+function LoginScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>Login Screen</Text>
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   let [fontsLoaded] = useFonts({
     Lato_900Black,
   });
 
   if (!fontsLoaded) {
     return <AppLoading />;
-  } else {
-    return (
-      <ThemeProvider theme={{ colors: { primary: "green" } }}>
-        <MyFirstView
-          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-        >
-          <MyFirstText
-            color="primary"
-            style={{ fontFamily: "Lato_900Black", fontSize: 40 }}
-          >
-            Lato Black
-          </MyFirstText>
-        </MyFirstView>
-      </ThemeProvider>
-    );
   }
+
+  return (
+    <ThemeProvider theme={{ colors: { primary: "green" } }}>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Home"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ThemeProvider>
+  );
 }
 
 const MyFirstView = styled.View({
@@ -34,3 +61,5 @@ const MyFirstView = styled.View({
 });
 
 const MyFirstText = styled.Text<ColorProps>(color);
+
+export default App;
