@@ -7,7 +7,7 @@ import {useFonts, Lato_900Black} from '@expo-google-fonts/lato';
 import styled, {ThemeProvider} from 'styled-components/native';
 import {color, ColorProps} from 'styled-system';
 
-function HomeScreen({navigation}) {
+function HomeScreen({navigation}: any) {
   return (
     <MyFirstView
       style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
