@@ -10,7 +10,7 @@
     "eject": "expo eject",
     "testDebug": "jest -o --watch --coverage=false",
     "testFinal": "jest",
-    "lint": "eslint --ext .js,.ts,.tsx,.mdx"
+    "lint": "eslint . --ext .js,.ts,.tsx,.mdx"
   },
   "dependencies": {
     "@expo-google-fonts/lato": "^0.2.0",
