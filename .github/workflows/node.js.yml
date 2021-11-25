@@ -17,5 +17,5 @@ jobs:
           eas-version: latest
           expo-version: 4.x
           token: ${{ secrets.EXPO_TOKEN }}
-      - run: yarn install
-      - run: eas build -p android
+      - run: npm install
+      - run: npx eas-cli build -p android
