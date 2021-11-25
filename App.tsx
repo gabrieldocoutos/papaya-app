@@ -9,7 +9,6 @@ import styled, {ThemeProvider} from 'styled-components/native';
 import {color, ColorProps} from 'styled-system';
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>
-
 type Props = {
   navigation: HomeScreenNavigationProp
 }
