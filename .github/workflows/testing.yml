@@ -1,4 +1,4 @@
-name: Deploy Branch Preview
+name: test and type check
 
 on: [pull_request]
 
@@ -31,4 +31,4 @@ jobs:
       - name: Check Lint
         run: npm run lint
       - name: Test
-        run: npm run test
+        run: npm run testFinal
