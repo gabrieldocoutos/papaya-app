@@ -1,10 +1,18 @@
 import React from 'react';
-import {Text as RNText} from 'react-native';
+import styled from 'styled-components/native';
+import {color, ColorProps, space, SpaceProps} from 'styled-system';
 
-console.log('test commit');
+const StyledText = styled.Text<ColorProps&SpaceProps>`
+  ${color};
+  ${space};
+`;
 
-const Text = ({children}) => {
-  return <RNText>{children}</RNText>;
-};
+const Text = ({children, color = 'primary', ...rest}: TextComponent) =>
+  <StyledText color={color} {...rest} >{children}</StyledText>;
+
+interface TextComponent extends ColorProps, SpaceProps {
+  children: string
+}
+
 
 export {Text};
