@@ -12,17 +12,6 @@ import {
 }
   from 'styled-system';
 
-// export const Lato_100Thin: number;
-// export const Lato_100Thin_Italic: number;
-// export const Lato_300Light: number;
-// export const Lato_300Light_Italic: number;
-// export const Lato_400Regular: number;
-// export const Lato_400Regular_Italic: number;
-// export const Lato_700Bold: number;
-// export const Lato_700Bold_Italic: number;
-// export const Lato_900Black: number;
-// export const Lato_900Black_Italic: number;
-
 const StyledText = styled.Text<ColorProps&SpaceProps&FontSizeProps&FontFamilyProps>`
   ${color};
   ${space};
