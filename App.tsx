@@ -6,7 +6,6 @@ import {createNativeStackNavigator, NativeStackNavigationProp} from '@react-navi
 
 import {useFonts, Lato_900Black} from '@expo-google-fonts/lato';
 import styled, {ThemeProvider} from 'styled-components/native';
-import {color, ColorProps} from 'styled-system';
 import {Text} from 'shared/Text/TextComponent';
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>
@@ -21,7 +20,6 @@ function HomeScreen({navigation}: Props) {
     >
       <Text
         color="primary"
-        style={{fontFamily: 'Lato_900Black', fontSize: 40}}
       >
         Lato Black
       </Text>
