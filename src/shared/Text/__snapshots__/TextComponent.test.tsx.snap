@@ -2,11 +2,15 @@
 
 exports[`Text component snapshot 1`] = `
 <Text
-  color="red"
+  color="primary"
+  fontFamily="Lato_400Regular"
+  fontSize={16}
   style={
     Array [
       Object {
-        "color": "red",
+        "color": "green",
+        "fontFamily": "Lato_400Regular",
+        "fontSize": 16,
       },
     ]
   }
