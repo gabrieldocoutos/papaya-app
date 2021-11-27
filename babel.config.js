@@ -2,6 +2,12 @@ module.exports = function(api) {
   api.cache(true);
   return {
     presets: ['babel-preset-expo'],
-    plugins: [['module-resolver', {alias: {shared: './src/shared'}}]],
+    plugins: [['module-resolver', {
+      alias: {
+        shared: './src/shared',
+        utils: './src/utils',
+      },
+    },
+    ]],
   };
 };
