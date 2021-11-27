@@ -1,6 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text component snapshot 1`] = `
+exports[`snapshot with Black fontWeight 1`] = `
+<Text
+  color="primary"
+  fontFamily="Lato_900Black"
+  fontSize={16}
+  style={
+    Array [
+      Object {
+        "color": "green",
+        "fontFamily": "Lato_900Black",
+        "fontSize": 16,
+      },
+    ]
+  }
+>
+  Lato Black
+</Text>
+`;
+
+exports[`snapshot with Bold fontWeight 1`] = `
+<Text
+  color="primary"
+  fontFamily="Lato_700Bold"
+  fontSize={16}
+  style={
+    Array [
+      Object {
+        "color": "green",
+        "fontFamily": "Lato_700Bold",
+        "fontSize": 16,
+      },
+    ]
+  }
+>
+  Lato Black
+</Text>
+`;
+
+exports[`snapshot with Light fontWeight 1`] = `
+<Text
+  color="primary"
+  fontFamily="Lato_300Light"
+  fontSize={16}
+  style={
+    Array [
+      Object {
+        "color": "green",
+        "fontFamily": "Lato_300Light",
+        "fontSize": 16,
+      },
+    ]
+  }
+>
+  Lato Black
+</Text>
+`;
+
+exports[`snapshot with Thin fontWeight 1`] = `
+<Text
+  color="primary"
+  fontFamily="Lato_100Thin"
+  fontSize={16}
+  style={
+    Array [
+      Object {
+        "color": "green",
+        "fontFamily": "Lato_100Thin",
+        "fontSize": 16,
+      },
+    ]
+  }
+>
+  Lato Black
+</Text>
+`;
+
+exports[`snapshot with regular fontWeight 1`] = `
 <Text
   color="primary"
   fontFamily="Lato_400Regular"
