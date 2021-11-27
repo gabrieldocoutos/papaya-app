@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator, NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -7,6 +7,7 @@ import {createNativeStackNavigator, NativeStackNavigationProp} from '@react-navi
 import {useFonts, Lato_900Black} from '@expo-google-fonts/lato';
 import styled, {ThemeProvider} from 'styled-components/native';
 import {color, ColorProps} from 'styled-system';
+import {Text} from 'shared/Text/TextComponent';
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>
 type Props = {
@@ -18,12 +19,12 @@ function HomeScreen({navigation}: Props) {
     <MyFirstView
       style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
     >
-      <MyFirstText
+      <Text
         color="primary"
         style={{fontFamily: 'Lato_900Black', fontSize: 40}}
       >
         Lato Black
-      </MyFirstText>
+      </Text>
     </MyFirstView>
   );
 }
@@ -71,6 +72,5 @@ const MyFirstView = styled.View({
   backgroundColor: 'red',
 });
 
-export const MyFirstText = styled.Text<ColorProps>(color);
 
 export default App;
