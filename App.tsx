@@ -3,10 +3,7 @@ import * as React from "react";
 import { View } from "react-native";
 import AppLoading from "expo-app-loading";
 import { NavigationContainer } from "@react-navigation/native";
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationProp,
-} from "@react-navigation/native-stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   useFonts,
   Lato_100Thin,
@@ -20,22 +17,10 @@ import {
   Lato_900Black,
   Lato_900Black_Italic,
 } from "@expo-google-fonts/lato";
-import styled, { ThemeProvider } from "styled-components/native";
+import { ThemeProvider } from "styled-components/native";
 import { Text } from "shared/Text/TextComponent";
-import { Logo } from "shared/Logo/LogoComponent";
-
-type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, "Home">;
-type Props = {
-  navigation: HomeScreenNavigationProp;
-};
-
-function HomeScreen({ navigation }: Props) {
-  return (
-    <MyFirstView style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Logo />
-    </MyFirstView>
-  );
-}
+import { Home } from "screens/Home/HomeComponent";
+import { RootStackParamList } from "shared/types/navigatorTypes";
 
 function LoginScreen() {
   return (
@@ -44,11 +29,6 @@ function LoginScreen() {
     </View>
   );
 }
-
-type RootStackParamList = {
-  Home: undefined;
-  Login: undefined;
-};
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -74,16 +54,12 @@ function App() {
     <ThemeProvider theme={{ colors: { primary: "#FF6243" } }}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
   );
 }
-
-const MyFirstView = styled.View({
-  backgroundColor: "white",
-});
 
 export default App;
