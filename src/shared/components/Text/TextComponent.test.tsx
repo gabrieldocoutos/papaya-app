@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "utils/testUtils";
 
-import { Text } from "shared/Text/TextComponent";
+import { Text } from "shared/components";
 
 test("snapshot with regular fontWeight", () => {
   const { toJSON } = render(<Text color="primary">Lato Black</Text>);
