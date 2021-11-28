@@ -4,6 +4,7 @@
     "strict": true,
     "baseUrl": "src",
     "paths": {
+      "screens/*": ["./screens/*"],
       "shared/*": ["./shared/*"],
       "utils/*": ["./utils/*"]
     }

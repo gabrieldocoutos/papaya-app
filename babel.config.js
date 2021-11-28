@@ -7,6 +7,7 @@ module.exports = function (api) {
         "module-resolver",
         {
           alias: {
+            screens: "./src/screens",
             shared: "./src/shared",
             utils: "./src/utils",
           },
