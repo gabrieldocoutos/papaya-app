@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot Logo component 1`] = `
+<Text
+  color="primary"
+  fontFamily="Lato_400Regular_Italic"
+  fontSize={30}
+  style={
+    Array [
+      Object {
+        "color": "green",
+        "fontFamily": "Lato_400Regular_Italic",
+        "fontSize": 30,
+      },
+    ]
+  }
+>
+  papaya
+</Text>
+`;
