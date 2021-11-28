@@ -4,8 +4,8 @@
     "strict": true,
     "baseUrl": "src",
     "paths": {
-      "shared/*" : ["./shared/*"],
+      "shared/*": ["./shared/*"],
       "utils/*": ["./utils/*"]
     }
-  },
+  }
 }
