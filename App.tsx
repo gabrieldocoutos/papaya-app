@@ -1,9 +1,12 @@
 /* eslint-disable camelcase */
-import * as React from 'react';
-import {View} from 'react-native';
-import AppLoading from 'expo-app-loading';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator, NativeStackNavigationProp} from '@react-navigation/native-stack';
+import * as React from "react";
+import { View } from "react-native";
+import AppLoading from "expo-app-loading";
+import { NavigationContainer } from "@react-navigation/native";
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from "@react-navigation/native-stack";
 import {
   useFonts,
   Lato_100Thin,
@@ -16,25 +19,19 @@ import {
   Lato_700Bold_Italic,
   Lato_900Black,
   Lato_900Black_Italic,
-} from '@expo-google-fonts/lato';
-import styled, {ThemeProvider} from 'styled-components/native';
-import {Text} from 'shared/Text/TextComponent';
+} from "@expo-google-fonts/lato";
+import styled, { ThemeProvider } from "styled-components/native";
+import { Text } from "shared/Text/TextComponent";
 
-type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>
+type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, "Home">;
 type Props = {
-  navigation: HomeScreenNavigationProp
-}
+  navigation: HomeScreenNavigationProp;
+};
 
-function HomeScreen({navigation}: Props) {
+function HomeScreen({ navigation }: Props) {
   return (
-    <MyFirstView
-      style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
-    >
-      <Text
-        color="primary"
-        fontSize={72}
-        fontFamily="Bold_Italic"
-      >
+    <MyFirstView style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text color="primary" fontSize={72} fontFamily="Bold_Italic">
         Lato Black
       </Text>
     </MyFirstView>
@@ -43,16 +40,16 @@ function HomeScreen({navigation}: Props) {
 
 function LoginScreen() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Login Screen</Text>
     </View>
   );
 }
 
 type RootStackParamList = {
-  Home: undefined,
-  Login: undefined
-}
+  Home: undefined;
+  Login: undefined;
+};
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -75,12 +72,9 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={{colors: {primary: 'green'}}}>
+    <ThemeProvider theme={{ colors: { primary: "green" } }}>
       <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Home"
-          screenOptions={{headerShown: false}}
-        >
+        <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
@@ -90,8 +84,7 @@ function App() {
 }
 
 const MyFirstView = styled.View({
-  backgroundColor: 'red',
+  backgroundColor: "red",
 });
-
 
 export default App;
