@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "shared/Text/TextComponent";
+import { Text } from "shared/components/Text/TextComponent";
 
 const Logo = ({ size = 30 }: LogoProps) => {
   return (

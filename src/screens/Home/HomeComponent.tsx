@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "shared/types/navigatorTypes";
-import { Logo } from "shared/Logo/LogoComponent";
+import { Logo } from "shared/components";
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, "Home">;
 type Props = {

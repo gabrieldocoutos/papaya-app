@@ -18,9 +18,9 @@ import {
   Lato_900Black_Italic,
 } from "@expo-google-fonts/lato";
 import { ThemeProvider } from "styled-components/native";
-import { Text } from "shared/Text/TextComponent";
-import { Home } from "screens/Home/HomeComponent";
-import { RootStackParamList } from "shared/types/navigatorTypes";
+import { Text } from "shared/components";
+import { Home } from "screens";
+import { RootStackParamList } from "shared/types";
 
 function LoginScreen() {
   return (
