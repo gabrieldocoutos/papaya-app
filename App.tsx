@@ -22,6 +22,7 @@ import {
 } from "@expo-google-fonts/lato";
 import styled, { ThemeProvider } from "styled-components/native";
 import { Text } from "shared/Text/TextComponent";
+import { Logo } from "shared/Logo/LogoComponent";
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, "Home">;
 type Props = {
@@ -31,9 +32,7 @@ type Props = {
 function HomeScreen({ navigation }: Props) {
   return (
     <MyFirstView style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text color="primary" fontSize={72} fontFamily="Bold_Italic">
-        Lato Black
-      </Text>
+      <Logo />
     </MyFirstView>
   );
 }
@@ -72,7 +71,7 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={{ colors: { primary: "green" } }}>
+    <ThemeProvider theme={{ colors: { primary: "#FF6243" } }}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home" component={HomeScreen} />
@@ -84,7 +83,7 @@ function App() {
 }
 
 const MyFirstView = styled.View({
-  backgroundColor: "red",
+  backgroundColor: "white",
 });
 
 export default App;
