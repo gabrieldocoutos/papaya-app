@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "shared/types/navigatorTypes";
 import { Logo } from "shared/components";
+import HomeIcon from "./HomeIcon";
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, "Home">;
 type Props = {
@@ -13,6 +14,7 @@ export const Home = ({ navigation }: Props) => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Logo />
+      <HomeIcon width={300} height={200} />
     </View>
   );
 };
