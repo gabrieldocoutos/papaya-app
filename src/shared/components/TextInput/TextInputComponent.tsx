@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { TextInputProps as RNTextInputProps, Animated } from "react-native";
 import styled from "styled-components/native";
 import {
@@ -29,8 +29,6 @@ const TextInput = ({
     inputRange: [0, 1],
     outputRange: ["#eee", "#FF6243"],
   });
-
-  useEffect(() => {}, [isFocused]);
 
   return (
     <View flexDirection="column" {...props}>
