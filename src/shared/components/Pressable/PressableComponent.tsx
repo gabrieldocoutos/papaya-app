@@ -16,6 +16,7 @@ import {
   BorderProps,
 } from "styled-system";
 import { LinearGradient } from "expo-linear-gradient";
+
 import { Text } from "../Text/TextComponent";
 
 const pressedStyle = ({ pressed }: PressableStateCallbackType) => ({

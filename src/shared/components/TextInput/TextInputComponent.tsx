@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { TextInputProps as RNTextInputProps, Animated } from "react-native";
 import styled, { useTheme } from "styled-components/native";
 import { color, ColorProps, SpaceProps, LayoutProps, BorderProps } from "styled-system";
+
 import { Text } from "../Text/TextComponent";
 import { View, AnimatedView } from "../View/ViewComponent";
 
