@@ -24,6 +24,7 @@ const SignUpScreen = () => {
               value={values.email}
               label="E-mail"
               mb={12}
+              placeholder="Escreva aqui o seu-email"
             />
             <TextInput
               onChangeText={handleChange("password")}
@@ -31,6 +32,7 @@ const SignUpScreen = () => {
               value={values.password}
               label="Senha"
               mb={12}
+              placeholder="Sua senha"
             />
             <Pressable onPress={handleSubmit} label="Submit" variant="secondary" />
           </View>

@@ -1,16 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { TextInputProps as RNTextInputProps, Animated } from "react-native";
-import styled from "styled-components/native";
-import {
-  color,
-  ColorProps,
-  space,
-  SpaceProps,
-  layout,
-  LayoutProps,
-  border,
-  BorderProps,
-} from "styled-system";
+import styled, { useTheme } from "styled-components/native";
+import { color, ColorProps, SpaceProps, LayoutProps, BorderProps } from "styled-system";
 import { Text } from "../Text/TextComponent";
 import { View, AnimatedView } from "../View/ViewComponent";
 
@@ -20,14 +11,15 @@ const TextInput = ({
   onChangeText,
   onBlur = () => {},
   onFocus = () => {},
+  placeholder,
   ...props
 }: TextInputProps) => {
-  const [isFocused, setIsFocused] = useState(false);
+  const theme = useTheme();
 
   const borderColor = useRef(new Animated.Value(0)).current;
   const currentColor = borderColor.interpolate({
     inputRange: [0, 1],
-    outputRange: ["#eee", "#FF6243"],
+    outputRange: [theme.colors.lightGray, theme.colors.primary],
   });
 
   return (
@@ -41,12 +33,12 @@ const TextInput = ({
         height={44}
         borderRadius={"5px"}
         style={[{}, { borderColor: currentColor }]}
+        {...props}
       >
         <StyledTextInput
           value={value}
           onChangeText={onChangeText}
           onFocus={(e) => {
-            setIsFocused(true);
             onFocus(e);
             Animated.timing(borderColor, {
               toValue: 1,
@@ -55,7 +47,6 @@ const TextInput = ({
             }).start();
           }}
           onBlur={(e) => {
-            setIsFocused(false);
             onBlur(e);
             Animated.timing(borderColor, {
               toValue: 0,
@@ -64,18 +55,15 @@ const TextInput = ({
             }).start();
           }}
           color="secondary"
-          focused={isFocused}
+          placeholder={placeholder}
         />
       </AnimatedView>
     </View>
   );
 };
 
-const StyledTextInput = styled.TextInput<ColorProps & BorderProps & { focused: Boolean }>`
+const StyledTextInput = styled.TextInput<ColorProps>`
   ${color};
-  ${space};
-  ${layout};
-  ${border};
   width: 100%;
 `;
 
