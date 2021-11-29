@@ -2,7 +2,7 @@ import React from "react";
 import { Dimensions } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "shared/types/navigatorTypes";
-import { View, Text, SafeAreaView } from "shared/components";
+import { View, Text, SafeAreaView, Pressable } from "shared/components";
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, "Home">;
 type Props = {
@@ -31,7 +31,9 @@ export const HomeScreen = ({ navigation }: Props) => {
           papaya
         </Text>
       </View>
-      <View />
+      <View>
+        <Pressable label="Enter" />
+      </View>
     </SafeAreaView>
   );
 };
