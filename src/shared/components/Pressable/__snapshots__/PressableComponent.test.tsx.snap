@@ -41,7 +41,7 @@ exports[`snapshot Pressable 1`] = `
     style={
       Array [
         Object {
-          "color": "green",
+          "color": "#FF6243",
           "fontFamily": "Lato_400Regular",
           "fontSize": 16,
           "textAlign": "center",

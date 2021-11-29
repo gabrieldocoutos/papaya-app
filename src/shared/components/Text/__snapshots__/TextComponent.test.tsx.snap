@@ -8,7 +8,7 @@ exports[`snapshot with Black fontWeight 1`] = `
   style={
     Array [
       Object {
-        "color": "green",
+        "color": "#FF6243",
         "fontFamily": "Lato_900Black",
         "fontSize": 16,
       },
@@ -27,7 +27,7 @@ exports[`snapshot with Bold fontWeight 1`] = `
   style={
     Array [
       Object {
-        "color": "green",
+        "color": "#FF6243",
         "fontFamily": "Lato_700Bold",
         "fontSize": 16,
       },
@@ -46,7 +46,7 @@ exports[`snapshot with Light fontWeight 1`] = `
   style={
     Array [
       Object {
-        "color": "green",
+        "color": "#FF6243",
         "fontFamily": "Lato_300Light",
         "fontSize": 16,
       },
@@ -65,7 +65,7 @@ exports[`snapshot with Thin fontWeight 1`] = `
   style={
     Array [
       Object {
-        "color": "green",
+        "color": "#FF6243",
         "fontFamily": "Lato_100Thin",
         "fontSize": 16,
       },
@@ -84,7 +84,7 @@ exports[`snapshot with regular fontWeight 1`] = `
   style={
     Array [
       Object {
-        "color": "green",
+        "color": "#FF6243",
         "fontFamily": "Lato_400Regular",
         "fontSize": 16,
       },

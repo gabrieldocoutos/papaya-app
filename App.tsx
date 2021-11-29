@@ -22,6 +22,7 @@ import { ThemeProvider } from "styled-components/native";
 import { Text } from "shared/components";
 import { HomeScreen, SignUpScreen } from "screens";
 import { RootStackParamList } from "shared/types";
+import { theme } from "shared/configuration";
 
 function LoginScreen() {
   return (
@@ -53,7 +54,7 @@ function App() {
 
   return (
     <SafeAreaProvider>
-      <ThemeProvider theme={{ colors: { primary: "#FF6243", secondary: "#2f2e41" } }}>
+      <ThemeProvider theme={theme}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Home" component={HomeScreen} />
