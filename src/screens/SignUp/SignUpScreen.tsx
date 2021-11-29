@@ -1,12 +1,19 @@
 import React from "react";
-import { View, Text } from "shared/components";
+import { Dimensions } from "react-native";
+import { Text, SafeAreaView } from "shared/components";
 
-function SignUpScreen() {
+const SignUpScreen = () => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <SafeAreaView
+      flex={1}
+      justifyContent="flex-start"
+      paddingX={Dimensions.get("screen").width * 0.08}
+      flexDirection="column"
+      bg="#eee"
+    >
       <Text>SignUp Screen</Text>
-    </View>
+    </SafeAreaView>
   );
-}
+};
 
 export { SignUpScreen };
