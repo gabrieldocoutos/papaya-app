@@ -1,7 +1,7 @@
 import React from "react";
 import { Dimensions } from "react-native";
-import { SafeAreaView, View, Pressable, TextInput } from "shared/components";
 import { Formik } from "formik";
+import { SafeAreaView, View, Pressable, TextInput } from "shared/components";
 
 const SignUpScreen = () => {
   return (

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { TextInputProps as RNTextInputProps } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import { TextInputProps as RNTextInputProps, Animated } from "react-native";
 import styled from "styled-components/native";
 import {
   color,
@@ -12,7 +12,7 @@ import {
   BorderProps,
 } from "styled-system";
 import { Text } from "../Text/TextComponent";
-import { View } from "../View/ViewComponent";
+import { View, AnimatedView } from "../View/ViewComponent";
 
 const TextInput = ({
   label,
@@ -24,39 +24,61 @@ const TextInput = ({
 }: TextInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
+  const borderColor = useRef(new Animated.Value(0)).current;
+  const currentColor = borderColor.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["#eee", "#FF6243"],
+  });
+
+  useEffect(() => {}, [isFocused]);
+
   return (
     <View flexDirection="column" {...props}>
       <Text fontSize={16} mb={"3px"} fontFamily="Bold">
         {label}
       </Text>
-      <StyledTextInput
-        value={value}
-        onChangeText={onChangeText}
-        onFocus={(e) => {
-          setIsFocused(true);
-          onFocus(e);
-        }}
-        onBlur={(e) => {
-          setIsFocused(false);
-          onBlur(e);
-        }}
-        color="secondary"
-        focused={isFocused}
-      />
+      <AnimatedView
+        paddingLeft={16}
+        borderWidth={1}
+        height={44}
+        borderRadius={"5px"}
+        style={[{}, { borderColor: currentColor }]}
+      >
+        <StyledTextInput
+          value={value}
+          onChangeText={onChangeText}
+          onFocus={(e) => {
+            setIsFocused(true);
+            onFocus(e);
+            Animated.timing(borderColor, {
+              toValue: 1,
+              duration: 400,
+              useNativeDriver: false,
+            }).start();
+          }}
+          onBlur={(e) => {
+            setIsFocused(false);
+            onBlur(e);
+            Animated.timing(borderColor, {
+              toValue: 0,
+              duration: 400,
+              useNativeDriver: false,
+            }).start();
+          }}
+          color="secondary"
+          focused={isFocused}
+        />
+      </AnimatedView>
     </View>
   );
 };
 
-const StyledTextInput = styled.TextInput<ColorProps & { focused: Boolean }>`
+const StyledTextInput = styled.TextInput<ColorProps & BorderProps & { focused: Boolean }>`
   ${color};
   ${space};
   ${layout};
   ${border};
-  border: 1px solid ${(props) => (props.focused ? "#FF6243" : "#ebebeb")};
-  border-radius: 5px;
-  padding-left: 16px;
-  height: 44px;
-  background-color: white;
+  width: 100%;
 `;
 
 interface TextInputProps
