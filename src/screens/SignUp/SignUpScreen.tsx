@@ -10,9 +10,12 @@ const SignUpScreen = () => {
       justifyContent="flex-start"
       paddingX={Dimensions.get("screen").width * 0.08}
       flexDirection="column"
-      bg="#eee"
+      bg="#fcfcfc"
     >
-      <Formik initialValues={{ email: "" }} onSubmit={(values) => console.log(values)}>
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        onSubmit={(values) => console.log(values)}
+      >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
           <View flexDirection="column" mt={20}>
             <TextInput
@@ -22,7 +25,14 @@ const SignUpScreen = () => {
               label="E-mail"
               mb={12}
             />
-            <Pressable onPress={handleSubmit} label="Submit" />
+            <TextInput
+              onChangeText={handleChange("password")}
+              onBlur={handleBlur("password")}
+              value={values.password}
+              label="Senha"
+              mb={12}
+            />
+            <Pressable onPress={handleSubmit} label="Submit" variant="secondary" />
           </View>
         )}
       </Formik>

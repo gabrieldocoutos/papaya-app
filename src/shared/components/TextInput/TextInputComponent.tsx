@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextInputProps as RNTextInputProps } from "react-native";
 import styled from "styled-components/native";
 import {
@@ -14,41 +14,48 @@ import {
 import { Text } from "../Text/TextComponent";
 import { View } from "../View/ViewComponent";
 
-const TextInput = ({ label, value, onChangeText, onBlur, ...props }: TextInputProps) => {
+const TextInput = ({
+  label,
+  value,
+  onChangeText,
+  onBlur = () => {},
+  onFocus = () => {},
+  ...props
+}: TextInputProps) => {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
     <View flexDirection="column" {...props}>
-      <Text fontSize={14} mb={"6px"} fontFamily="Bold">
+      <Text fontSize={16} mb={"3px"} fontFamily="Bold">
         {label}
       </Text>
       <StyledTextInput
         value={value}
         onChangeText={onChangeText}
-        onBlur={onBlur}
-        style={{
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 1,
-          },
-          shadowOpacity: 0.32,
-          shadowRadius: 5.46,
-
-          elevation: 1,
+        onFocus={(e) => {
+          setIsFocused(true);
+          onFocus(e);
+        }}
+        onBlur={(e) => {
+          setIsFocused(false);
+          onBlur(e);
         }}
         color="secondary"
+        focused={isFocused}
       />
     </View>
   );
 };
 
-const StyledTextInput = styled.TextInput<ColorProps>`
+const StyledTextInput = styled.TextInput<ColorProps & { focused: Boolean }>`
   ${color};
   ${space};
   ${layout};
   ${border};
-  border: 1px solid #ddd;
+  border: 1px solid ${(props) => (props.focused ? "#FF6243" : "#ebebeb")};
   border-radius: 5px;
-  padding: 6px 0px 6px 16px;
+  padding-left: 16px;
+  height: 44px;
   background-color: white;
 `;
 
