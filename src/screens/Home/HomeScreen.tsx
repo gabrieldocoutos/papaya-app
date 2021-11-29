@@ -9,7 +9,7 @@ type Props = {
   navigation: HomeScreenNavigationProp;
 };
 
-export const Home = ({ navigation }: Props) => {
+export const HomeScreen = ({ navigation }: Props) => {
   return (
     <SafeAreaView
       flex={1}

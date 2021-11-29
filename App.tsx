@@ -20,7 +20,7 @@ import {
 } from "@expo-google-fonts/lato";
 import { ThemeProvider } from "styled-components/native";
 import { Text } from "shared/components";
-import { Home } from "screens";
+import { HomeScreen } from "screens";
 import { RootStackParamList } from "shared/types";
 
 function LoginScreen() {
@@ -56,7 +56,7 @@ function App() {
       <ThemeProvider theme={{ colors: { primary: "#FF6243", secondary: "#2f2e41" } }}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
           </Stack.Navigator>
         </NavigationContainer>
