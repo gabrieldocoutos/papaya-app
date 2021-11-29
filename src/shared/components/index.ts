@@ -1,4 +1,4 @@
 import { Text } from "./Text/TextComponent";
-import { Logo } from "./Logo/LogoComponent";
+import { View, SafeAreaView } from "./View/ViewComponent";
 
-export { Text, Logo };
+export { Text, View, SafeAreaView };

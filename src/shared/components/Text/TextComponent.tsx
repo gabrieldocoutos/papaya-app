@@ -9,16 +9,24 @@ import {
   FontSizeProps,
   fontFamily,
   FontFamilyProps,
+  typography,
+  TypographyProps,
+  layout,
+  LayoutProps,
 } from "styled-system";
 
-const StyledText = styled.Text<ColorProps & SpaceProps & FontSizeProps & FontFamilyProps>`
+const StyledText = styled.Text<
+  ColorProps & SpaceProps & FontSizeProps & FontFamilyProps & TypographyProps & LayoutProps
+>`
   ${color};
   ${space};
   ${fontSize}
   ${fontFamily}
+  ${typography}
+  ${layout}
 `;
 
-const buildFontWeight = (fontWeight: TextComponent["fontFamily"]) => {
+const buildFontWeight = (fontWeight: TextProps["fontFamily"]) => {
   switch (fontWeight) {
     case "Thin":
     case "Thin_Italic":
@@ -44,7 +52,7 @@ const Text = ({
   fontFamily = "Regular",
   fontSize = 16,
   ...rest
-}: TextComponent) => {
+}: TextProps) => {
   const font = `Lato_${buildFontWeight(fontFamily) + fontFamily}`;
   return (
     <StyledText fontFamily={font} color={color} fontSize={fontSize} {...rest}>
@@ -53,7 +61,12 @@ const Text = ({
   );
 };
 
-interface TextComponent extends ColorProps, SpaceProps, FontSizeProps {
+export interface TextProps
+  extends ColorProps,
+    SpaceProps,
+    FontSizeProps,
+    TypographyProps,
+    LayoutProps {
   children: string;
   fontFamily?:
     | "Thin"

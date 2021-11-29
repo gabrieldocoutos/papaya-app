@@ -1,9 +1,8 @@
 import React from "react";
-import { View } from "react-native";
+import { Dimensions } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "shared/types/navigatorTypes";
-import { Logo } from "shared/components";
-import HomeIcon from "./HomeIcon";
+import { View, Text, SafeAreaView } from "shared/components";
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, "Home">;
 type Props = {
@@ -12,9 +11,27 @@ type Props = {
 
 export const Home = ({ navigation }: Props) => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Logo />
-      <HomeIcon width={300} height={200} />
-    </View>
+    <SafeAreaView
+      flex={1}
+      justifyContent="space-between"
+      paddingX={Dimensions.get("screen").width * 0.08}
+      flexDirection="column"
+      bg="primary"
+    >
+      <View />
+      <View flexDirection="column" width={"100%"}>
+        <Text
+          width={"100%"}
+          textAlign="center"
+          fontSize={80}
+          color="white"
+          fontFamily="Regular_Italic"
+          mb={20}
+        >
+          papaya
+        </Text>
+      </View>
+      <View />
+    </SafeAreaView>
   );
 };
