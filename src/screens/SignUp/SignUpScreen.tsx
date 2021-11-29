@@ -1,6 +1,7 @@
 import React from "react";
 import { Dimensions } from "react-native";
-import { Text, SafeAreaView } from "shared/components";
+import { SafeAreaView, View, Pressable, TextInput } from "shared/components";
+import { Formik } from "formik";
 
 const SignUpScreen = () => {
   return (
@@ -11,7 +12,20 @@ const SignUpScreen = () => {
       flexDirection="column"
       bg="#eee"
     >
-      <Text>SignUp Screen</Text>
+      <Formik initialValues={{ email: "" }} onSubmit={(values) => console.log(values)}>
+        {({ handleChange, handleBlur, handleSubmit, values }) => (
+          <View flexDirection="column" mt={20}>
+            <TextInput
+              onChangeText={handleChange("email")}
+              onBlur={handleBlur("email")}
+              value={values.email}
+              label="E-mail"
+              mb={12}
+            />
+            <Pressable onPress={handleSubmit} label="Submit" />
+          </View>
+        )}
+      </Formik>
     </SafeAreaView>
   );
 };

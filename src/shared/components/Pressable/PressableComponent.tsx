@@ -1,5 +1,9 @@
 import React from "react";
-import { PressableProps as RnPressibleProps, PressableStateCallbackType } from "react-native";
+import {
+  GestureResponderEvent,
+  PressableProps as RnPressableProps,
+  PressableStateCallbackType,
+} from "react-native";
 import styled from "styled-components/native";
 import {
   color,
@@ -11,7 +15,7 @@ import {
   border,
   BorderProps,
 } from "styled-system";
-import { Text } from "shared/components";
+import { Text } from "../Text/TextComponent";
 
 const pressedStyle = ({ pressed }: PressableStateCallbackType) => ({
   opacity: pressed ? 0.8 : 1,
@@ -60,13 +64,14 @@ const variantStyles = {
 };
 
 interface PressableProps
-  extends RnPressibleProps,
+  extends Omit<RnPressableProps, "onPress">,
     ColorProps,
     SpaceProps,
     LayoutProps,
     BorderProps {
   variant?: "primary" | "secondary";
   label: string;
+  onPress(event: React.FormEvent<HTMLFormElement> | GestureResponderEvent | undefined): void;
 }
 
 export { Pressable };

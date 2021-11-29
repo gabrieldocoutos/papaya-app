@@ -40,7 +40,7 @@ export const HomeScreen = ({ navigation }: Props) => {
           mb={12}
           onPress={() => navigation.navigate("SignUp")}
         />
-        <Pressable label="Acessar minha conta" variant="secondary" mb={12} />
+        <Pressable label="Acessar minha conta" variant="secondary" mb={12} onPress={() => {}} />
       </View>
     </SafeAreaView>
   );

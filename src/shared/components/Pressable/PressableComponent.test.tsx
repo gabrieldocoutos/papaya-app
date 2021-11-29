@@ -4,6 +4,6 @@ import { render } from "utils/testUtils";
 import { Pressable } from "shared/components";
 
 test("snapshot Pressable", () => {
-  const { toJSON } = render(<Pressable label="Press me!" />);
+  const { toJSON } = render(<Pressable onPress={jest.fn} label="Press me!" />);
   expect(toJSON()).toMatchSnapshot();
 });
