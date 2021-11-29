@@ -1,5 +1,5 @@
 import { Animated } from "react-native";
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import {
   color,
   ColorProps,
@@ -16,29 +16,23 @@ import { SafeAreaView as CustomSafeAreaView } from "react-native-safe-area-conte
 
 type ViewProps = ColorProps & SpaceProps & LayoutProps & FlexboxProps & BorderProps;
 
-export const View = styled.View<ViewProps>`
+const BaseStyles = css<Pick<FlexboxProps, "flexDirection">>`
   ${color};
   ${layout};
   ${space};
   ${flexbox};
   ${border};
   flex-direction: ${(props) => props.flexDirection ?? "row"};
+`;
+
+export const View = styled.View<ViewProps>`
+  ${BaseStyles};
 `;
 
 export const SafeAreaView = styled(CustomSafeAreaView)<ViewProps>`
-  ${color};
-  ${layout};
-  ${space};
-  ${flexbox};
-  ${border};
-  flex-direction: ${(props) => props.flexDirection ?? "row"};
+  ${BaseStyles};
 `;
 
 export const AnimatedView = styled(Animated.View)<ViewProps>`
-  ${color};
-  ${layout};
-  ${space};
-  ${flexbox};
-  ${border};
-  flex-direction: ${(props) => props.flexDirection ?? "row"};
+  ${BaseStyles};
 `;
