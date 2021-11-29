@@ -8,8 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "testDebug": "jest -o --watch --coverage=false",
-    "testFinal": "jest",
+    "test:watch": "jest -o --watch --coverage=false",
+    "test": "jest",
     "lint": "eslint . --ext .js,.ts,.tsx,.mdx",
     "open:coverage": "open coverage/lcov-report/index.html"
   },
