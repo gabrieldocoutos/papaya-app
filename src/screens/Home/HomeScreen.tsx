@@ -30,9 +30,13 @@ export const HomeScreen = ({ navigation }: Props) => {
         >
           papaya
         </Text>
+        <Text color="white" fontSize={12} textAlign="center">
+          Seus resultados dependem de você, mas nós podemos ajudar.
+        </Text>
       </View>
-      <View>
-        <Pressable label="Enter" />
+      <View flexDirection="column" mb={30}>
+        <Pressable label="Criar uma nova conta" mb={12} />
+        <Pressable label="Acessar minha conta" variant="secondary" mb={12} />
       </View>
     </SafeAreaView>
   );

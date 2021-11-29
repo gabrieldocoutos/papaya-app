@@ -6,32 +6,67 @@ import {
   ColorProps,
   space,
   SpaceProps,
-  TypographyProps,
   layout,
   LayoutProps,
+  border,
+  BorderProps,
 } from "styled-system";
 import { Text } from "shared/components";
 
-const Pressable = ({ variant = "primary", label, textProps = {}, ...props }: PressableProps) => {
-  const isPrimary = variant === "primary";
+const pressedStyle = ({ pressed }: PressableStateCallbackType) => ({
+  opacity: pressed ? 0.8 : 1,
+});
 
-  return <StyledPressable {...props}>{() => <Text>{label}</Text>}</StyledPressable>;
+const Pressable = ({ variant = "primary", label, ...props }: PressableProps) => {
+  return (
+    <StyledPressable style={pressedStyle} {...variantStyles[variant]["pressableStyles"]} {...props}>
+      {() => (
+        <Text {...variantStyles[variant]["textStyles"]} textAlign="center">
+          {label}
+        </Text>
+      )}
+    </StyledPressable>
+  );
 };
 
-const StyledPressable = styled.Pressable<ColorProps & SpaceProps & LayoutProps>`
+const StyledPressable = styled.Pressable<ColorProps & SpaceProps & LayoutProps & BorderProps>`
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
   ${color};
   ${space};
   ${layout};
-  background-color: white;
-  padding: 12px;
-  border-radius: 6px;
-  ${(props) => console.log(props) || (props.pressed && "opacity: 0.8;")}
+  ${border};
 `;
 
-interface PressableProps extends RnPressibleProps {
+const variantStyles = {
+  primary: {
+    textStyles: {
+      color: "primary",
+    },
+    pressableStyles: {
+      backgroundColor: "white",
+    },
+  },
+  secondary: {
+    textStyles: {
+      color: "white",
+    },
+    pressableStyles: {
+      backgroundColor: "primary",
+      borderColor: "white",
+    },
+  },
+};
+
+interface PressableProps
+  extends RnPressibleProps,
+    ColorProps,
+    SpaceProps,
+    LayoutProps,
+    BorderProps {
   variant?: "primary" | "secondary";
   label: string;
-  textProps: TypographyProps;
 }
 
 export { Pressable };
