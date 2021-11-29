@@ -35,7 +35,11 @@ export const HomeScreen = ({ navigation }: Props) => {
         </Text>
       </View>
       <View flexDirection="column" mb={30}>
-        <Pressable label="Criar uma nova conta" mb={12} />
+        <Pressable
+          label="Criar uma nova conta"
+          mb={12}
+          onPress={() => navigation.navigate("SignUp")}
+        />
         <Pressable label="Acessar minha conta" variant="secondary" mb={12} />
       </View>
     </SafeAreaView>
