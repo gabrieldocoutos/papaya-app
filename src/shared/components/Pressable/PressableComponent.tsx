@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {
   GestureResponderEvent,
   PressableProps as RnPressableProps,
@@ -15,6 +15,7 @@ import {
   border,
   BorderProps,
 } from "styled-system";
+import { LinearGradient } from "expo-linear-gradient";
 import { Text } from "../Text/TextComponent";
 
 const pressedStyle = ({ pressed }: PressableStateCallbackType) => ({
@@ -25,18 +26,36 @@ const Pressable = ({ variant = "primary", label, ...props }: PressableProps) => 
   return (
     <StyledPressable style={pressedStyle} {...variantStyles[variant]["pressableStyles"]} {...props}>
       {() => (
-        <Text {...variantStyles[variant]["textStyles"]} textAlign="center">
-          {label}
-        </Text>
+        <Fragment>
+          {variant === "secondary" && (
+            <LinearGradient
+              // Background Linear Gradient
+              colors={["#FF6243", "#f14c26"]}
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                top: 0,
+                height: 42,
+                borderRadius: 6,
+              }}
+            />
+          )}
+          <Text {...variantStyles[variant]["textStyles"]} textAlign="center">
+            {label}
+          </Text>
+        </Fragment>
       )}
     </StyledPressable>
   );
 };
 
 const StyledPressable = styled.Pressable<ColorProps & SpaceProps & LayoutProps & BorderProps>`
-  padding: 12px;
+  height: 44px;
   border-radius: 6px;
   border: 1px solid transparent;
+  align-items: center;
+  justify-content: center;
   ${color};
   ${space};
   ${layout};
@@ -57,7 +76,6 @@ const variantStyles = {
       color: "white",
     },
     pressableStyles: {
-      backgroundColor: "primary",
       borderColor: "white",
     },
   },
