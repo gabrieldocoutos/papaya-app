@@ -56,6 +56,7 @@ const TextInput = ({
           }}
           color="secondary"
           placeholder={placeholder}
+          autoCapitalize={"none"}
         />
       </AnimatedView>
     </View>

@@ -50,7 +50,9 @@ const Pressable = ({ variant = "primary", label, ...props }: PressableProps) => 
   );
 };
 
-const StyledPressable = styled.Pressable<ColorProps & SpaceProps & LayoutProps & BorderProps>`
+type BasePressableProps = ColorProps & SpaceProps & LayoutProps & BorderProps;
+
+const StyledPressable = styled.Pressable<BasePressableProps>`
   height: 44px;
   border-radius: 6px;
   border: 1px solid transparent;
@@ -81,12 +83,7 @@ const variantStyles = {
   },
 };
 
-interface PressableProps
-  extends Omit<RnPressableProps, "onPress">,
-    ColorProps,
-    SpaceProps,
-    LayoutProps,
-    BorderProps {
+interface PressableProps extends Omit<RnPressableProps, "onPress">, BasePressableProps {
   variant?: "primary" | "secondary";
   label: string;
   onPress(event: React.FormEvent<HTMLFormElement> | GestureResponderEvent | undefined): void;

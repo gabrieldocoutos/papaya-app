@@ -15,9 +15,14 @@ import {
   LayoutProps,
 } from "styled-system";
 
-const StyledText = styled.Text<
-  ColorProps & SpaceProps & FontSizeProps & FontFamilyProps & TypographyProps & LayoutProps
->`
+type BaseTextProps = ColorProps &
+  SpaceProps &
+  FontSizeProps &
+  FontFamilyProps &
+  TypographyProps &
+  LayoutProps;
+
+const StyledText = styled.Text<BaseTextProps>`
   ${color};
   ${space};
   ${fontSize}
@@ -51,22 +56,17 @@ const Text = ({
   color = "primary",
   fontFamily = "Regular",
   fontSize = 16,
-  ...rest
+  ...props
 }: TextProps) => {
   const font = `Lato_${buildFontWeight(fontFamily) + fontFamily}`;
   return (
-    <StyledText fontFamily={font} color={color} fontSize={fontSize} {...rest}>
+    <StyledText fontFamily={font} color={color} fontSize={fontSize} {...props}>
       {children}
     </StyledText>
   );
 };
 
-export interface TextProps
-  extends ColorProps,
-    SpaceProps,
-    FontSizeProps,
-    TypographyProps,
-    LayoutProps {
+export interface TextProps extends BaseTextProps {
   children: string;
   fontFamily?:
     | "Thin"
