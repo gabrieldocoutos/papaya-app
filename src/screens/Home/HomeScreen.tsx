@@ -31,7 +31,7 @@ export const HomeScreen = ({ navigation }: Props) => {
           >
             papaya
           </Text>
-          <Text color="white" fontSize={12} textAlign="center">
+          <Text color="white" textAlign="center">
             Seus resultados dependem de você, mas nós podemos ajudar.
           </Text>
         </View>
