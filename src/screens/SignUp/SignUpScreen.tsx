@@ -10,7 +10,7 @@ const SignUpScreen = () => {
       justifyContent="flex-start"
       paddingX={Dimensions.get("screen").width * 0.08}
       flexDirection="column"
-      bg="#fcfcfc"
+      bg="screenBackgroundColor"
     >
       <Formik
         initialValues={{ email: "", password: "" }}

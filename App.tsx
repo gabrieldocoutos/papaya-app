@@ -18,11 +18,12 @@ import {
   Lato_900Black,
   Lato_900Black_Italic,
 } from "@expo-google-fonts/lato";
-import { ThemeProvider } from "styled-components/native";
+import { ThemeProvider, useTheme } from "styled-components/native";
 import { Text } from "shared/components";
 import { HomeScreen, SignUpScreen } from "screens";
 import { RootStackParamList } from "shared/types";
 import { theme } from "shared/configuration";
+import { Header } from "shared/components";
 
 function LoginScreen() {
   return (
@@ -33,6 +34,14 @@ function LoginScreen() {
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+// eslint-disable-next-line react/display-name
+const HeaderComponent = () => () =>
+  (
+    <Text fontSize={20} fontFamily="Regular_Italic">
+      papaya
+    </Text>
+  );
 
 function App() {
   const [fontsLoaded] = useFonts({
@@ -52,16 +61,35 @@ function App() {
     return <AppLoading />;
   }
 
+  const Navigator = () => {
+    const theme = useTheme();
+
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen
+            name="SignUp"
+            component={SignUpScreen}
+            options={{
+              headerTitle: HeaderComponent(),
+              headerBackVisible: false,
+              headerStyle: {
+                backgroundColor: theme.colors.screenBackgroundColor,
+              },
+              headerShadowVisible: false,
+            }}
+          />
+          <Stack.Screen name="Login" component={LoginScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  };
+
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="SignUp" component={SignUpScreen} />
-            <Stack.Screen name="Login" component={LoginScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <Navigator />
       </ThemeProvider>
     </SafeAreaProvider>
   );

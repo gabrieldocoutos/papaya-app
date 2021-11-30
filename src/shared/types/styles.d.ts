@@ -6,6 +6,7 @@ declare module "styled-components" {
       primary: string;
       secondary: string;
       lightGray: string;
+      screenBackgroundColor: string;
     };
   }
 }
