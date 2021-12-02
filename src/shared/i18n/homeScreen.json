@@ -1,0 +1,17 @@
+{
+  "en": {
+    "home": {
+      "title": "papaya",
+      "subtitle": "Your results depend on you, but we can help.",
+      "signUpButton": "Create a new account",
+      "signInButton": "Sign in"
+    }
+  },
+  "pt-br": {
+    "home": {
+      "subtitle": "Seus resultados dependem de você, mas nós podemos ajudar.",
+      "signUpButton": "Criar uma nova conta",
+      "signInButton": "Acessa minha conta"
+    }
+  }
+}

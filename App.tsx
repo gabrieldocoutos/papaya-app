@@ -19,10 +19,22 @@ import {
   Lato_900Black_Italic,
 } from "@expo-google-fonts/lato";
 import { ThemeProvider, useTheme } from "styled-components/native";
+import * as Localization from "expo-localization";
+import i18n from "i18n-js";
 import { Text } from "shared/components";
 import { HomeScreen, SignUpScreen } from "screens";
 import { RootStackParamList } from "shared/types";
 import { theme } from "shared/configuration";
+import * as translations from "shared/i18n";
+
+i18n.translations = {
+  en: { ...translations.homeScreen.en },
+  "pt-BR": { ...translations.homeScreen["pt-br"] },
+};
+
+i18n.locale = Localization.locale;
+// i18n.locale = "pt-BR";
+i18n.fallbacks = true;
 
 function LoginScreen() {
   return (

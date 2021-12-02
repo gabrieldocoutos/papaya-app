@@ -4,6 +4,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "shared/types/navigatorTypes";
 import { View, Text, SafeAreaView, Pressable } from "shared/components";
 import { LinearGradient } from "expo-linear-gradient";
+import i18n from "i18n-js";
 
 type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, "Home">;
 type Props = {
@@ -29,19 +30,24 @@ export const HomeScreen = ({ navigation }: Props) => {
             fontFamily="Regular_Italic"
             mb={20}
           >
-            papaya
+            {i18n.t("home.title")}
           </Text>
           <Text color="white" textAlign="center">
-            Seus resultados dependem de você, mas nós podemos ajudar.
+            {i18n.t("home.subtitle")}
           </Text>
         </View>
         <View flexDirection="column" mb={30}>
           <Pressable
-            label="Criar uma nova conta"
+            label={i18n.t("home.signUpButton")}
             mb={12}
             onPress={() => navigation.navigate("SignUp")}
           />
-          <Pressable label="Acessar minha conta" variant="secondary" mb={12} onPress={() => {}} />
+          <Pressable
+            label={i18n.t("home.signInButton")}
+            variant="secondary"
+            mb={12}
+            onPress={() => {}}
+          />
         </View>
       </SafeAreaView>
     </LinearGradient>
