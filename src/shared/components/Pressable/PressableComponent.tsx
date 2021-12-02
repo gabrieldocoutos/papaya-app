@@ -5,16 +5,7 @@ import {
   PressableStateCallbackType,
 } from "react-native";
 import styled from "styled-components/native";
-import {
-  color,
-  ColorProps,
-  space,
-  SpaceProps,
-  layout,
-  LayoutProps,
-  border,
-  BorderProps,
-} from "styled-system";
+import { space, SpaceProps, layout, LayoutProps, border, BorderProps } from "styled-system";
 import { LinearGradient } from "expo-linear-gradient";
 
 import { Text } from "../Text/TextComponent";
@@ -51,7 +42,7 @@ const Pressable = ({ variant = "primary", label, ...props }: PressableProps) => 
   );
 };
 
-type BasePressableProps = ColorProps & SpaceProps & LayoutProps & BorderProps;
+type BasePressableProps = SpaceProps & LayoutProps & BorderProps;
 
 const StyledPressable = styled.Pressable<BasePressableProps>`
   height: 44px;
@@ -59,7 +50,7 @@ const StyledPressable = styled.Pressable<BasePressableProps>`
   border: 1px solid transparent;
   align-items: center;
   justify-content: center;
-  ${color};
+  width: 100%;
   ${space};
   ${layout};
   ${border};

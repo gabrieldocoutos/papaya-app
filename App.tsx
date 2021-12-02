@@ -34,8 +34,8 @@ i18n.translations = {
   "pt-BR": { ...homeScreen["pt-br"], ...signUpScreen["pt-BR"] },
 };
 
-// i18n.locale = Localization.locale;
-i18n.locale = "pt-BR";
+i18n.locale = Localization.locale;
+// i18n.locale = "pt-BR";
 i18n.fallbacks = true;
 
 function LoginScreen() {

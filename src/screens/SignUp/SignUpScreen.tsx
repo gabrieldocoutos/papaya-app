@@ -1,17 +1,22 @@
 import React from "react";
-import { Dimensions } from "react-native";
+import { ScrollView } from "react-native";
 import { Formik } from "formik";
 import i18n from "i18n-js";
-import { SafeAreaView, View, Pressable, TextInput } from "shared/components";
+import { View, Pressable, TextInput, Text } from "shared/components";
+import SignUpIcon from "./SignUpIcon";
+import { useTheme } from "styled-components/native";
 
 const SignUpScreen = () => {
+  const theme = useTheme();
+
   return (
-    <SafeAreaView
-      flex={1}
-      justifyContent="flex-start"
-      paddingX={Dimensions.get("screen").width * 0.08}
-      flexDirection="column"
-      bg="screenBackgroundColor"
+    <ScrollView
+      style={{ flex: 1, flexGrow: 1, backgroundColor: theme.colors.screenBackgroundColor }}
+      contentContainerStyle={{
+        paddingHorizontal: 16,
+        justifyContent: "flex-start",
+        flexDirection: "column",
+      }}
     >
       <Formik
         initialValues={{
@@ -25,7 +30,11 @@ const SignUpScreen = () => {
         onSubmit={(values) => console.log(values)}
       >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
-          <View flexDirection="column" mt={20}>
+          <View flexDirection="column" mt={20} mb={50} alignItems="center">
+            <SignUpIcon width={200} height={200} />
+            <Text fontFamily="Bold" textAlign="center" color="secondary" mb={40}>
+              Preencha seu cadastro e comece a ter resultados!
+            </Text>
             <TextInput
               onChangeText={handleChange("email")}
               onBlur={handleBlur("email")}
@@ -82,7 +91,7 @@ const SignUpScreen = () => {
           </View>
         )}
       </Formik>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
