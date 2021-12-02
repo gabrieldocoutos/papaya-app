@@ -1,0 +1,64 @@
+{
+  "en": {
+    "signUp": {
+      "form": {
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Type here your e-mail"
+        },
+        "first_name": {
+          "label": "Name",
+          "placeholder": "Your first name"
+        },
+        "last_name": {
+          "label": "Last Name",
+          "placeholder": "Your Last Name"
+        },
+        "birthdate": {
+          "label": "Birthdate",
+          "placeholder": "Your birthdate"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Your password"
+        },
+        "confirm_password": {
+          "label": "Confirm Password",
+          "placeholder": "Same as the password"
+        },
+        "submitButton": "Sign Up!"
+      }
+    }
+  },
+  "pt-BR": {
+    "signUp": {
+      "form": {
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Escreva aqui o seu-email"
+        },
+        "first_name": {
+          "label": "Nome",
+          "placeholder": "Seu primeiro nome"
+        },
+        "last_name": {
+          "label": "Sobrenome",
+          "placeholder": "Seu sobrenome"
+        },
+        "birthdate": {
+          "label": "Data de nascimento",
+          "placeholder": "Sua data de nascimento"
+        },
+        "password": {
+          "label": "Senha",
+          "placeholder": "Sua senha"
+        },
+        "confirm_password": {
+          "label": "Confirme sua senha",
+          "placeholder": "A mesma do campo anterior"
+        },
+        "submitButton": "Cadastrar!"
+      }
+    }
+  }
+}

@@ -27,13 +27,15 @@ import { RootStackParamList } from "shared/types";
 import { theme } from "shared/configuration";
 import * as translations from "shared/i18n";
 
+const { homeScreen, signUpScreen } = translations;
+
 i18n.translations = {
-  en: { ...translations.homeScreen.en },
-  "pt-BR": { ...translations.homeScreen["pt-br"] },
+  en: { ...homeScreen.en, ...signUpScreen.en },
+  "pt-BR": { ...homeScreen["pt-br"], ...signUpScreen["pt-BR"] },
 };
 
-i18n.locale = Localization.locale;
-// i18n.locale = "pt-BR";
+// i18n.locale = Localization.locale;
+i18n.locale = "pt-BR";
 i18n.fallbacks = true;
 
 function LoginScreen() {
@@ -88,7 +90,7 @@ function App() {
               headerStyle: {
                 backgroundColor: theme.colors.screenBackgroundColor,
               },
-              headerShadowVisible: false,
+              headerShadowVisible: true,
             }}
           />
           <Stack.Screen name="Login" component={LoginScreen} />
