@@ -23,7 +23,6 @@ import { Text } from "shared/components";
 import { HomeScreen, SignUpScreen } from "screens";
 import { RootStackParamList } from "shared/types";
 import { theme } from "shared/configuration";
-import { Header } from "shared/components";
 
 function LoginScreen() {
   return (
