@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot with regular fontWeight 1`] = `
+<View
+  color="primary"
+  flexDirection="column"
+  style={
+    Array [
+      Object {
+        "color": "#FF6243",
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <Text
+    color="primary"
+    fontFamily="Lato_700Bold"
+    fontSize={16}
+    mb="3px"
+    style={
+      Array [
+        Object {
+          "color": "#FF6243",
+          "fontFamily": "Lato_700Bold",
+          "fontSize": 16,
+          "marginBottom": 3,
+        },
+      ]
+    }
+  >
+    E-mail
+  </Text>
+  <View
+    borderRadius="5px"
+    borderWidth={1}
+    color="primary"
+    height={44}
+    paddingLeft={16}
+    style={
+      Object {
+        "borderColor": "rgba(238, 238, 238, 1)",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "color": "#FF6243",
+        "flexDirection": "row",
+        "height": 44,
+        "paddingLeft": 16,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      color="secondary"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "#2f2e41",
+            "width": "100%",
+          },
+        ]
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+</View>
+`;
